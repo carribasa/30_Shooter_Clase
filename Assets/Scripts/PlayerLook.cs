@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerLook : MonoBehaviour
@@ -12,7 +14,7 @@ public class PlayerLook : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
     }
 
-    void Update()
+    void LateUpdate()
     {
         float mouseX = Input.GetAxis("Mouse X") * mouseSensibility * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensibility * Time.deltaTime;
