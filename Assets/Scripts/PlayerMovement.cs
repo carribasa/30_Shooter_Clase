@@ -4,20 +4,13 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public CharacterController controller;
-    public float speed;
-
+    public CharacterController characterController;
+    public float speed, gravity = -9.81f, jumpForce;
     private Vector3 velocity;
-    public float gravity = -9.81f;
-
-    public Transform groundCheck;
-    public float groundDistance;
-    public LayerMask groundMask;
-    [SerializeField] float jumpForce;
 
     void LateUpdate()
     {
-        if (controller.isGrounded && velocity.y < 0)
+        if (characterController.isGrounded && velocity.y < 0)
         {
             velocity.y = -2;
         }
@@ -27,17 +20,17 @@ public class PlayerMovement : MonoBehaviour
 
         // Horizontal movement
         Vector3 move = (transform.right * x) + (transform.forward * z);
-        controller.Move(speed * Time.deltaTime * move);
+        characterController.Move(speed * Time.deltaTime * move);
 
         // Gravity
         velocity.y += gravity * Time.deltaTime;
-        controller.Move(velocity * Time.deltaTime);
+        characterController.Move(velocity * Time.deltaTime);
         AddJump();
     }
 
     private void AddJump()
     {
-        if (Input.GetButtonDown("Jump") && controller.isGrounded)
+        if (Input.GetButtonDown("Jump") && characterController.isGrounded)
         {
             velocity.y = jumpForce;
         }

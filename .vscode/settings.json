@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "3D_Shooter_Clase.sln"
+    "dotnet.defaultSolution": "30_Shooter_Clase.sln"
 }
