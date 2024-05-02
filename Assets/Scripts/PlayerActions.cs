@@ -18,9 +18,9 @@ public class PlayerActions : MonoBehaviour
 
     private void Shoot()
     {
-        if (Input.GetButtonDown("Fire"))
-        {
+        // if (Input.GetButtonDown("Fire"))
+        // {
             
-        }
+        // }
     }
 }
